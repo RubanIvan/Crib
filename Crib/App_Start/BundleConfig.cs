@@ -18,12 +18,27 @@ namespace Crib
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/SyntaxHighlighter").Include(
+                        "~/Plugin/SyntaxHighlighter/shCore.js",
+                        "~/Plugin/SyntaxHighlighter/shBrushCSharp.js",
+                        "~/Plugin/SyntaxHighlighter/shBrushSql.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                        "~/Scripts/bootstrap.js",
+                        "~/Scripts/respond.js"));
+
+
             // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,
             // используйте средство построения на сайте http://modernizr.com, чтобы выбрать только нужные тесты.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                        "~/Content/bootstrap.css",
+                        "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
@@ -38,6 +53,11 @@ namespace Crib
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(new StyleBundle("~/SyntaxHighlighter/css").Include(
+                        "~/Plugin/SyntaxHighlighter/shCore.css",
+                        "~/Plugin/SyntaxHighlighter/shThemeDefault.css"));
+
         }
     }
 }

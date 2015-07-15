@@ -13,6 +13,14 @@ namespace Crib
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            routes.MapRoute(
+                name: "Page",
+                url: "Page/{id}",
+                defaults: new { controller = "Page", action = "Index", id = UrlParameter.Optional }
+            );
+
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

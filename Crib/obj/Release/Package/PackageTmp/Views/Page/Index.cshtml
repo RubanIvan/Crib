@@ -1,0 +1,30 @@
+﻿@using Crib.Models
+@model List<Content>
+
+
+
+<h2>@ViewBag.Title</h2>
+
+
+@foreach (Content BlockContent in Model)
+{
+
+    switch (BlockContent.LangID)
+    {
+        case (int)LangEnum.HTML:
+            @Html.Raw(BlockContent.BlockContent)
+            break;
+
+        case (int)LangEnum.Charp:
+        <script type="syntaxhighlighter" class="brush: csharp">
+            <![CDATA[
+            @Html.Raw(BlockContent.BlockContent)
+            ]]>
+        </script>
+            break;
+
+    }
+    <br />
+
+}
+

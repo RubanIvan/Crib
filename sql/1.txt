@@ -1,0 +1,1 @@
+    <add name="CribConnection" providerName="System.Data.SqlClient" connectionString="Data Source=vsavr;Initial Catalog=Crib;Persist Security Info=True;User ID=sa;Password=Qw123456;" />

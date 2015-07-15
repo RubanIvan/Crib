@@ -56,5 +56,47 @@ REFERENCES Lang(LangID)
 ALTER TABLE Content WITH CHECK ADD  CONSTRAINT [FK_PageID_Content] FOREIGN KEY (PageID)
 REFERENCES Page(PageID)
 
+INSERT Lang (Lang) VALUES ('HTML'),('C#')
+
+INSERT Tag(Tag) VALUES ('Console'),('WPF')
+
+
+INSERT Page (Title,PageID) VALUES ('Hello world',1)
+
+--UPDATE Page SET Title='Hello world'
+
+
+INSERT PageTag(PageID,TagID) VALUES (1,1)
+
+INSERT Content (PageID,LangID,BlockNum,Content) VALUES
+(1,1,1,'Переходя к более подробному знакомству с C#, традиционно рассмотрим программу "Hello, world"'),
+(1,2,2,'
+using System;
+
+class Hello
+{
+	static void Main()
+	{
+		Console.WriteLine("hello, world");
+	}
+}
+')
+GO
+
+CREATE PROC GetPageTitle
+@PageID int
+AS
+SELECT Title FROM Page WHERE PageID=@PageID
+
+GO
+
+CREATE PROC GetPage
+@PageID int
+AS
+SELECT ContentID,PageID, LangID, BlockNum, Content  
+FROM Content WHERE PageID=@PageID 
+ORDER BY BlockNum 
+GO
+
 
 

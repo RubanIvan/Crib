@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/SyntaxHighlighter/css")
+    
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/SyntaxHighlighter")
+</head>
+<body>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+
+</body>
+</html>

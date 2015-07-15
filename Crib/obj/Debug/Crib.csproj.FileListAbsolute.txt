@@ -38,6 +38,6 @@ D:\Projects\Crib\Crib\bin\ru\System.Web.Razor.resources.dll
 D:\Projects\Crib\Crib\bin\ru\System.Web.WebPages.resources.dll
 D:\Projects\Crib\Crib\bin\ru\System.Web.WebPages.Deployment.resources.dll
 D:\Projects\Crib\Crib\bin\ru\System.Web.WebPages.Razor.resources.dll
-D:\Projects\Crib\Crib\obj\Debug\Crib.csprojResolveAssemblyReference.cache
 D:\Projects\Crib\Crib\obj\Debug\Crib.dll
 D:\Projects\Crib\Crib\obj\Debug\Crib.pdb
+D:\Projects\Crib\Crib\obj\Debug\Crib.csprojResolveAssemblyReference.cache
