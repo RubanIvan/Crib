@@ -7,29 +7,31 @@
 
 
 
-
-<div class="row">
-    <div class="col-md-10 col-md-offset-1">
-        @foreach (Content BlockContent in Model)
-        {
-
-            switch (BlockContent.LangID)
+<div class="content">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            @foreach (Content BlockContent in Model)
             {
-                case (int) LangEnum.HTML:
-                    @Html.Raw(BlockContent.BlockContent)
-                    break;
 
-                case (int) LangEnum.Charp:
+                switch (BlockContent.LangID)
+                {
+                    case (int)LangEnum.HTML:
+                        @Html.Raw(BlockContent.BlockContent)
+                        break;
+
+                    case (int)LangEnum.Charp:
                     <script type="syntaxhighlighter" class="brush: csharp">
-                    <![CDATA[
-                    @Html.Raw(BlockContent.BlockContent)
-                    ]]>
-                </script>
-                    break;
+                        <![CDATA[
+                        @Html.Raw(BlockContent.BlockContent)
+                        ]]>
+                    </script>
+                        break;
 
+                }
+                <br />
             }
-            <br/>
-        }
+        </div>
     </div>
 </div>
+
 

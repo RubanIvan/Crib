@@ -1,14 +1,24 @@
 ﻿body {
     /*font-size: .85em;*/
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    /*font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     color: #232323;
-    background-color: #fff;
+    background-color: #fff;*/
+    background-color: #f1f0f1;
+    margin: 0px;
+    padding: 0px;
+    font: 14px verdana, arial, helvetica;
+    /*color: #777c7c;*/
+    color: #232323;
 }
 
 header, footer, nav, section {
     display: block;
 }
 
+
+p {
+    margin: 10px 0 0 0;
+}
 
 /* Styles for basic forms
 -----------------------------------------------------------*/
@@ -58,4 +68,16 @@ textarea {
 
 .validation-summary-valid {
     display: none;
+}
+
+footer {
+    height: 40px;
+    border-top: 1px #008000 dashed !important;
+}
+
+footer p {
+    font-size: 12px;
+    text-align: center;
+    color: #808080;
+    margin-top: 15px;
 }

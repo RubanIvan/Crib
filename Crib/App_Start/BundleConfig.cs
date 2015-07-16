@@ -57,6 +57,7 @@ namespace Crib
             bundles.Add(new StyleBundle("~/SyntaxHighlighter/css").Include(
                         "~/Plugin/SyntaxHighlighter/shCore.css",
                         "~/Plugin/SyntaxHighlighter/shThemeDefault.css"));
+                        //"~/Plugin/SyntaxHighlighter/shThemeDjango.css"));
 
         }
     }

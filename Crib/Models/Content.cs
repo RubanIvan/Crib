@@ -7,7 +7,12 @@ using System.Web;
 namespace Crib.Models
 {
 
-    public enum LangEnum { HTML=1,Charp=2}
+    public enum LangEnum
+    {
+        HTML = 1,
+        Charp = 2,
+        SQL = 3
+    }
 
     public class Content
     {

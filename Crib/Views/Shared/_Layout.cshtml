@@ -6,14 +6,19 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/SyntaxHighlighter/css")
-    
+
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/SyntaxHighlighter")
 </head>
 <body>
     @RenderBody()
 
-    
+
+
+    <footer class="navbar navbar-fixed-bottom">
+        <p>Ruban Ivan ✯ ivan@ruban.com © 2015</p>
+    </footer>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

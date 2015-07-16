@@ -56,17 +56,22 @@ REFERENCES Lang(LangID)
 ALTER TABLE Content WITH CHECK ADD  CONSTRAINT [FK_PageID_Content] FOREIGN KEY (PageID)
 REFERENCES Page(PageID)
 
-INSERT Lang (Lang) VALUES ('HTML'),('C#')
+
+INSERT Lang (Lang) VALUES ('HTML'),('C#'),('SQL')
 
 INSERT Tag(Tag) VALUES ('Console'),('WPF')
 
 
 INSERT Page (Title,PageID) VALUES ('Hello world',1)
 
+
 --UPDATE Page SET Title='Hello world'
 
 
 INSERT PageTag(PageID,TagID) VALUES (1,1)
+
+--SELECT * FROM PageTag
+--SELECT * FROM Tag
 
 INSERT Content (PageID,LangID,BlockNum,Content) VALUES
 (1,1,1,'ѕереход€ к более подробному знакомству с C#, традиционно рассмотрим программу "Hello, world"'),
@@ -97,6 +102,68 @@ SELECT ContentID,PageID, LangID, BlockNum, Content
 FROM Content WHERE PageID=@PageID 
 ORDER BY BlockNum 
 GO
+------------------------------------------------------------------------------------
+--SELECT * FROM Page
+--LangID HTML=1,C#=2,SQL=3
+INSERT Page (Title) VALUES ('«авершение работы (выход) из приложени€')
+
+INSERT Content (PageID,LangID,BlockNum,Content) VALUES
+(2,1,1,'<p>«авершение консольного приложени€</p>'),
+(2,2,2,
+'
+	//0 код возврата
+	System.Environment.Exit(0);
+')
+
+--добавл€ем теги
+INSERT PageTag(PageID,TagID) VALUES (2,1)
+
+--UPDATE Page SET Title='«авершение работы (выход) из приложени€' WHERE PageID=2
+SELECT * FROM Content
+UPDATE Content SET Content='<p>ѕереход€ к более подробному знакомству с C#, традиционно рассмотрим программу "Hello, world"</p>' WHERE ContentID=1
 
 
+INSERT Page (Title) VALUES ('јнимаци€ изображени€ WPF')
 
+INSERT Content (PageID,LangID,BlockNum,Content) VALUES
+(3,1,1,'<p>јнимаци€ изображени€ в WPF</p>'),
+(3,2,2,
+'
+		/// <summary>»зображение пламени двигател€ </summary>
+        public Image ShipEngineImage;
+
+        /// <summary>спрайты кадров анимации пламени двигател€</summary>
+        public List<BitmapImage> ShipEngImageList = new List<BitmapImage>();
+
+        /// <summary>количество кадров анимации пламени двигател€</summary>
+        protected const int AnimShipEngMaxFrame = 4;
+
+        /// <summary>«авис. свойство дл€ анимации пламени двигател€</summary>
+        public static readonly DependencyProperty CurFrameRotateProperty = DependencyProperty.Register(
+            "CurFrameRotate", typeof(int), typeof(PlayerShip), new PropertyMetadata(default(int), CurFrameShipEngChange));
+
+        /// <summary>“екущий кадр анимации двигател€ </summary>
+        public int CurFrameEngImage
+        {
+            get { return (int)GetValue(CurFrameRotateProperty); }
+            set { SetValue(CurFrameRotateProperty, value); }
+        }
+
+        /// <summary>обработчик событи€ срабатывает после смены каждого кадра</summary>
+        private static void CurFrameShipEngChange(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            //”станавливает изображение равное кадру анимации
+            ((PlayerShip)(d)).ShipEngineImage.Source = ((PlayerShip)(d)).ShipEngImageList[((PlayerShip)(d)).CurFrameEngImage];
+        }
+
+        //создаем анимацию вращени€
+        public Int32Animation AnimEngFire = new Int32Animation(0, AnimShipEngMaxFrame - 1, TimeSpan.FromSeconds(0.4));
+
+		//дл€ анимации двигател€ задаем повтор€тс€ вечно
+        AnimEngFire.RepeatBehavior = RepeatBehavior.Forever;
+
+        //«апускаем анимацию
+        BeginAnimation(CurFrameRotateProperty, AnimEngFire);
+')
+
+INSERT PageTag(PageID,TagID) VALUES (3,2)
